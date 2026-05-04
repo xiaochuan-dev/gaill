@@ -42,14 +42,14 @@ jobs:
           sudo apt install -y fonts-noto-cjk fonts-arphic-gkai00mp
           fc-cache -fv
 
-      - name: Compile LaTeX
-        run: |
-          export PATH=$PATH:/usr/local/texlive/2026/bin/x86_64-linux
-          latexmk -xelatex -quiet -time -jobname="茆书概率论" main.tex
+      # - name: Compile LaTeX
+      #   run: |
+      #     export PATH=$PATH:/usr/local/texlive/2026/bin/x86_64-linux
+      #     latexmk -xelatex -quiet -time -jobname="茆书概率论" main.tex
 
-      - name: Upload PDF
-        uses: actions/upload-artifact@v6
-        with:
-          name: "output"
-          path: ./*.pdf
-          retention-days: 2
+      # - name: Upload PDF
+      #   uses: actions/upload-artifact@v6
+      #   with:
+      #     name: "output"
+      #     path: ./*.pdf
+      #     retention-days: 2
