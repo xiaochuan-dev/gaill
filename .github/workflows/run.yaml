@@ -39,7 +39,7 @@ jobs:
         if: steps.cache-fonts.outputs.cache-hit != 'true'
         run: |
           sudo apt update
-          sudo apt install -y fonts-noto-cjk fonts-arphic-gkai00mp
+          sudo apt install -y fonts-noto-cjk fonts-arphic-gkai00mp fonts-wqy-microhei fonts-wqy-zenhei
           fc-cache -fv
 
       - name: Compile LaTeX
