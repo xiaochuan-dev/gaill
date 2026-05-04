@@ -65,7 +65,7 @@
 % fontsetting
 \RequirePackage{amsmath,mathrsfs,amsfonts,amssymb}
 \PassOptionsToPackage{no-math}{fontspec}
-\RequirePackage[UTF8, scheme=plain,punct=kaiming]{ctex}
+\RequirePackage[UTF8, scheme=plain,punct=kaiming,fontset=ubuntu]{ctex}
 
 \RequirePackage{ifxetex}
 

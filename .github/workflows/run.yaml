@@ -14,25 +14,25 @@ jobs:
 
       - name: Fix permissions for caching
         run: |
-          sudo mkdir -p /usr/local/texlive/2026
-          sudo chown -R $USER:$USER /usr/local/texlive/2026
-          sudo chmod -R 755 /usr/local/texlive/2026
+          sudo mkdir -p /usr/local/texlive/2025
+          sudo chown -R $USER:$USER /usr/local/texlive/2025
+          sudo chmod -R 755 /usr/local/texlive/2025
 
       - name: Cache downloaded file
         uses: actions/cache@v4
         id: cache-software
         with:
-          path: /usr/local/texlive/2026
-          key: ${{ runner.os }}-texlive2026
+          path: /usr/local/texlive/2025
+          key: ${{ runner.os }}-texlive2025
 
       - name: install texlive
         if: steps.cache-software.outputs.cache-hit != 'true'
         run: |
           cd /tmp
-          curl -O https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/texlive2026.iso
-          sudo mkdir -p /mnt/texlive2026
-          sudo mount -o loop,ro /tmp/texlive2026.iso /mnt/texlive2026
-          cd /mnt/texlive2026
+          curl -O https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/2025/texlive2025.iso
+          sudo mkdir -p /mnt/texlive2025
+          sudo mount -o loop,ro /tmp/texlive2025.iso /mnt/texlive2025
+          cd /mnt/texlive2025
           sudo ./install-tl --scheme=full --no-interaction
 
       - name: Install fonts
@@ -44,7 +44,7 @@ jobs:
 
       # - name: Compile LaTeX
       #   run: |
-      #     export PATH=$PATH:/usr/local/texlive/2026/bin/x86_64-linux
+      #     export PATH=$PATH:/usr/local/texlive/2025/bin/x86_64-linux
       #     latexmk -xelatex -quiet -time -jobname="茆书概率论" main.tex
 
       # - name: Upload PDF
